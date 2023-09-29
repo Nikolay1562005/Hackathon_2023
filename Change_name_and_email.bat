@@ -1,3 +1,3 @@
-git config --global user.name "Nikolay2005615"
-git config --global user.email kolasmykov20056@mail.ru
+git config --global user.name "Your_name"
+git config --global user.email Your_email@mail.ru
 pause
