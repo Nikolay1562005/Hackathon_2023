@@ -14,6 +14,7 @@ class BaseInfo(BaseModel):
 class User(BaseModel):
     first_name = models.CharField(max_length=50, null=True)
     last_name = models.CharField(max_length=50, null=True)
+    resumefile = models.FileField(null=False, blank=True)
     is_admin = models.BooleanField(default=False)
     info = models.ForeignKey(BaseInfo, null=True, on_delete=models.CASCADE)
     
