@@ -22,15 +22,6 @@
       <span style="font-weight: bold;">Главная</span>
     </a>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'top-sellers-page' %}"><span style="font-weight: bold;">Топ продавцов</span>
-    </a>
-  </li>
-    <li class="nav-item">
-    <a class="nav-link" href="{% url 'adv-post' %}">
-      <span style="font-weight: bold;">Разместить объявление</span>
-    </a>
-  </li>
   {% if user.is_authenticated %}
   <li class="nav-item">
     <a class="nav-link" href="{% url 'profile' %}">

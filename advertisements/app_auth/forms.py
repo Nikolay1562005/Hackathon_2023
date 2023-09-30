@@ -23,9 +23,9 @@ class VacancyForm(forms.ModelForm):
     class Meta:
         model = Vacancy
         fields = ['name_vacancy', 'description', 'salary', 'organization']
-        # widgets = {
-        #     'name_vacancy': forms.CharField(attrs={'class': 'form-control form-control-lg'}),
-        #     'description': forms.Textarea(attrs={'class': 'form-control form-control-lg'}),
-        #     'salary': forms.IntegerField(attrs={'class': 'form-control form-control-lg'}),
-        #     'organization': forms.Textarea(attrs={'class': 'form-control form-control-lg'})
-        # }
+        widgets = {
+            'name_vacancy': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
+            'description': forms.Textarea(attrs={'class': 'form-control form-control-lg'}),
+            'salary': forms.NumberInput(attrs={'class': 'form-control form-control-lg'}),
+            'organization': forms.TextInput(attrs={'class': 'form-control form-control-lg'})
+        }

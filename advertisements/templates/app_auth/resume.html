@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Отправить резюме
+{% endblock %}
+
+{% block body %}
+<div>
+    <div class="container1">
+        <div><p>Выбранная вакансия</p></div>
+        <div>
+
+        </div>
+        <div class="input">
+            <p>
+                <input type="text" class="name" placeholder="Имя, фамилия">
+            </p>
+            <p>
+                <input type="email" class="email" placeholder="email">
+            </p>
+            <p>
+                <input type="text" class="phone" placeholder="номер телефона">
+            </p>
+            <p>Добавить резюме</p>
+            <p>
+                <input type="file">загрузить файл</input>
+            </p>
+            <textarea placeholder="коментарий" cols="30" rows="10"></textarea>
+            <p>
+                <button>сохранить</button>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

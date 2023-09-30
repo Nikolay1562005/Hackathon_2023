@@ -6,6 +6,12 @@ from django.contrib.auth import authenticate, login, logout
 from .models import Resume, Vacancy
 from .forms import VacancyForm
 
+
+def index(request):
+    vacancies = Vacancy.objects.all()
+    context = {'vacancies': vacancies}
+    return render(request, 'app_auth/index.html', context)
+
 def register_view(request):
     if request.method == 'POST':
         form = CustomUserRegister(request.POST)
@@ -45,13 +51,13 @@ def logout_view(request):
     logout(request)
     return redirect(reverse('login'))
 
-@login_required(login_url=reverse_lazy('login'))
+#@login_required(login_url=reverse_lazy('login'))
 def add_vacation(request):
     if request.method == 'POST':
-        form = Vacancy(request.POST, request.FILES)
+        form = VacancyForm(request.POST)
         if form.is_valid():
-            vac = form.save()
+            form.save()
             return redirect(reverse('index-page'))
-        return render(request, 'app_advertisements/add-vacation.html', {'form': form})
+        return render(request, 'app_auth/add_vacation.html', {'form': form})
     form = VacancyForm()
-    return render(request, 'app_advertisements/advertisement-post.html', {'form': form})
+    return render(request, 'app_auth/add_vacation.html', {'form': form})

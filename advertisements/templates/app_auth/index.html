@@ -50,7 +50,7 @@
     </ul>
     <form class="row g-3" method="get">
       <div class="col-auto w-50">
-        <input name="query" value="{% if title %}{{ title }}{% endif %}" type="text" class="form-control">
+        <input name="query" value="" type="text" class="form-control">
       </div>
       <div class="col-auto">
         <button type="submit" class="btn btn-success mb-3">Найти</button>
@@ -58,13 +58,13 @@
     </form>
   </div>
   <div class="d-flex flex-wrap">
-    {% for adv in advertisements %}
+    {% for vacancy in vacancies %}
     <div class="card w-25 mx-4 p-3 " style="max-width: 1200px; margin-top: 20px;">
-      <h1>Название:{{ adv.name_vacancy }}</h1>
-      <p>{{ adv.description }}</p>
-      {% comment %} <small>Зарпалата:{{ adv. }}</small> {% endcomment %}
-      <small>Зарпалата:{{ adv.salary }}</small>
-      <a class="btn btn-primary"  href="#">Оставить резюме</a>
+      <h1>{{ vacancy.name_vacancy }}</h1>
+      <p>{{ vacancy.description }}</p>
+      {% comment %} <small>{{ vacancy. }}</small> {% endcomment %}
+      <small>{{ vacancy.salary }} руб/месяц</small>
+      <a class="btn btn-primary"  href="#">Откликнуться</a>
     </div>
     {% endfor %}
   </div>
