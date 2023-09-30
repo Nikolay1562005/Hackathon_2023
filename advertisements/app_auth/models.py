@@ -1,3 +1,17 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
-# Create your models here.
+User = get_user_model()
+
+class Vacancy(models.Model):
+    name_vacancy = models.CharField("Название вакансии", max_length=128)
+    description = models.TextField('Описание')
+    create_at = models.DateTimeField("Время создания", auto_now_add=True)
+    salary = models.IntegerField("З/П (руб.месяц)")
+    organization = models.CharField("Организация", max_length=255, blank=False)
+
+class Resume(models.Model):
+    user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE)
+    answer = models.TextField("Комментарий", blank=True)
+    resume = models.FileField("Резюме", null=False, blank=False)
+    number_phone = models.CharField("Номемер телефона", max_length=12)

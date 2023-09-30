@@ -3,7 +3,8 @@ from .forms import CustomUserRegister
 from django.shortcuts import render, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-
+from .models import Resume, Vacancy
+from .forms import VacancyForm
 
 def register_view(request):
     if request.method == 'POST':
@@ -43,3 +44,14 @@ def profile_view(request):
 def logout_view(request):
     logout(request)
     return redirect(reverse('login'))
+
+@login_required(login_url=reverse_lazy('login'))
+def add_vacation(request):
+    if request.method == 'POST':
+        form = Vacancy(request.POST, request.FILES)
+        if form.is_valid():
+            vac = form.save()
+            return redirect(reverse('index-page'))
+        return render(request, 'app_advertisements/add-vacation.html', {'form': form})
+    form = VacancyForm()
+    return render(request, 'app_advertisements/advertisement-post.html', {'form': form})

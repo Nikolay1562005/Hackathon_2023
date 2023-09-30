@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-
 class Advertisement(models.Model):
     title = models.CharField("Название", max_length=128)  # короткие строки
     description = models.TextField('Описание')

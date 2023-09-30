@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, reverse
-from .models import Advertisement
 from .forms import AdvertisementForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.db.models import Count
 from django.contrib.auth import get_user_model
+from .models import Advertisement
+
 
 User = get_user_model()
 
