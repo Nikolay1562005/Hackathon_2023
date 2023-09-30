@@ -57,31 +57,14 @@
       </div>
     </form>
   </div>
-  <div class="col">
+  <div class="d-flex flex-wrap">
     {% for adv in advertisements %}
-    <div class="card mb-2" style="max-width: 1200px; margin-top: 20px;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <a href="{% if adv.image %}{{ adv.image.url }} {% else %} static/img/adv.png {% endif %}" class="nav-link">
-            <img src="{% if adv.image %}{{ adv.image.url }} {% else %} static/img/adv.png {% endif %}" class="img-fluid rounded-start" alt="Card title">
-          </a>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="{{ adv.get_url }}" class="nav-link"><strong>{{ adv.title }}</strong></a>
-            </h5>
-            <a href="{{ adv.get_url }}" class="nav-link">
-              <p class="card-text">
-                {{ adv.description }}
-              </p>
-              <span>Автор: {{ adv.user }}</span>
-              <p class="card-text"><small class="text-muted">Размещено: {{ adv.create_at }}</small></p>
-              <span>Цена: {{ adv.price }} руб.</span>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="card w-25 mx-4 p-3 " style="max-width: 1200px; margin-top: 20px;">
+      <h1>Название:{{ adv.name_vacancy }}</h1>
+      <p>{{ adv.description }}</p>
+      {% comment %} <small>Зарпалата:{{ adv. }}</small> {% endcomment %}
+      <small>Зарпалата:{{ adv.salary }}</small>
+      <a class="btn btn-primary"  href="#">Оставить резюме</a>
     </div>
     {% endfor %}
   </div>
