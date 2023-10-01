@@ -12,4 +12,9 @@
     <span class="badge bg-primary">Сейчас вы находитесь на сайте под ником {{ user }}.</span>
   </div>
 </div>
+{% for resume in resumes %}
+<div class="display-2">
+  <span>Сейчас вы находитесь на сайте под ником {{ resume.commentary }}.</span>
+</div>
+{% endfor %}
 {% endblock %}

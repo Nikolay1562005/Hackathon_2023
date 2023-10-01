@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Vacancy
+from .models import Vacancy, Resume
 
 from django import forms
 
@@ -28,4 +28,15 @@ class VacancyForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control form-control-lg'}),
             'salary': forms.NumberInput(attrs={'class': 'form-control form-control-lg'}),
             'organization': forms.TextInput(attrs={'class': 'form-control form-control-lg'})
+        }
+
+class ResumeForm(forms.ModelForm):
+
+    class Meta:
+        model = Resume
+        fields = ['number_phone', 'resume', 'commentary']
+        widgets = {
+            'commentary': forms.Textarea(attrs={'class': 'form-control form-control-lg'}),
+            'resume': forms.FileInput(attrs={'class': 'form-control form-control-lg'}),
+            'number_phone': forms.TextInput(attrs={'class': 'form-control form-control-lg'}),
         }

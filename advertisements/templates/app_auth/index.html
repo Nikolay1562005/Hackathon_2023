@@ -64,7 +64,7 @@
       <p>{{ vacancy.description }}</p>
       {% comment %} <small>{{ vacancy. }}</small> {% endcomment %}
       <small>{{ vacancy.salary }} руб/месяц</small>
-      <a class="btn btn-primary"  href="#">Откликнуться</a>
+      <a class="btn btn-primary"  href="{{ vacancy.get_url }}">Откликнуться</a>
     </div>
     {% endfor %}
   </div>

@@ -6,31 +6,38 @@
 {% endblock %}
 
 {% block body %}
-<div>
-    <div class="container1">
-        <div><p>Выбранная вакансия</p></div>
-        <div>
-
-        </div>
-        <div class="input">
-            <p>
-                <input type="text" class="name" placeholder="Имя, фамилия">
-            </p>
-            <p>
-                <input type="email" class="email" placeholder="email">
-            </p>
-            <p>
-                <input type="text" class="phone" placeholder="номер телефона">
-            </p>
-            <p>Добавить резюме</p>
-            <p>
-                <input type="file">загрузить файл</input>
-            </p>
-            <textarea placeholder="коментарий" cols="30" rows="10"></textarea>
-            <p>
-                <button>сохранить</button>
-            </p>
-        </div>
+  <div class="container">
+  <div class="row">
+    <div class="col" style="margin: 50px;">
+      <div class="display-2 text-center">
+        <span class="badge bg-primary" >Резюме</span>
+      </div>
     </div>
-</div>
+  </div>
+    <form method="post">
+      {% csrf_token %}
+      <div align="center">
+        {% for field in form %}
+        <div class="row mb-3">
+          <div class="col">
+            <label class="col-sm-4 col-form-label offset-center">{{ field.label }}</label>
+            <div class="col-sm-4 offset-center">
+              {{ field }}
+              {% if field.errors %}
+              {% for error in field.errors %}
+              <div class="form-label bg-warning" style="margin: 10px 0px;">{{ error }}</div>
+              {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row mb-3 text-center">
+        <div class="col">
+          <button type="submit" class="btn btn-success">Принять</button>
+        </div>
+      </div>
+    </form>
+  </div>
 {% endblock %}
