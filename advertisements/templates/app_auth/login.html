@@ -6,45 +6,33 @@
 {% endblock %}
 
 {% block body %}
-  <div class="container">
-  <div class="row">
-    <div class="col-8" style="margin: 50px;">
-      <div class="display-2">
-        <span class="badge bg-primary">Страница авторизации пользователя</span>
-      </div>
+<div class="container d-flex justify-content-center">
+  <div class="w-50 bg-white rounded shadow-lg">
+    <div class="mt-4 mb-3">
+      <h2 class="text-center fw-bolder">Авторизоваться</>
     </div>
-  </div>
+    <div class="">
     {% if error %}
-    <div class="col-sm-4 offset-4 w-25">
-      <div class="form-label bg-warning" style="margin: 10pt 0px;">
-        {{ error }}
+      <div class="">
+        <div class="form-label bg-warning" style="margin: 10pt 0px;">
+          {{ error }}
+        </div>
       </div>
-    </div>
     {% endif %}
-
     <form method="post">
       {% csrf_token %}
-      <div class="row mb-3">
-        <div class="col">
-          <label class="col-sm-4 col-form-label offset-4">Логин</label>
-          <div class="col-sm-4 offset-4 w-25">
-            <input name='username' type="text" class="form-control form-control-lg">
-          </div>
-        </div>
+      <div class="mx-5 my-3">
+        <label class="mb-2">Логин:</label>
+        <input name='username' type="text" class="form-control form-control-lg">
       </div>
-      <div class="row mb-3">
-        <div class="col">
-          <label class="col-sm-4 col-form-label offset-4">Пароль</label>
-          <div class="col-sm-4 offset-4 w-25">
-            <input name='password' type="password" class="form-control form-control-lg">
-          </div>
-        </div>
+      <div class="mx-5 my-3">
+          <label class="mb-2">Пароль:</label>
+          <input name='password' type="password" class="form-control form-control-lg">
       </div>
-      <div class="row mb-3 offset-sm-5">
-        <div class="col">
-          <button type="submit" class="btn btn-success">Принять</button>
-        </div>
+      <div class="text-center my-3  ">
+        <button type="submit" class="py-2 fw-bolder w-50 btn btn-success ">Принять</button>
       </div>
     </form>
   </div>
+</div>
 {% endblock %}

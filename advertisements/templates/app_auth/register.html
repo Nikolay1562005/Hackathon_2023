@@ -6,22 +6,19 @@
 {% endblock %}
 
 {% block body %}
-  <div class="container">
-  <div class="row">
-    <div class="col" style="margin: 50px;">
-      <div class="display-2">
-        <span class="badge bg-primary">Страница регистрации пользователя</span>
-      </div>
+<div class="container d-flex justify-content-center mb-5">
+  <div class="w-50 bg-white rounded shadow-lg">
+    <div class="mt-4 mb-3">
+      <h2 class="text-center fw-bolder">Форма регистрации</h2>
     </div>
-  </div>
     {{ form.non_field_errors }}
-    <form method="post">
+    <form class="" method="post">
       {% csrf_token %}
       {% for field in form %}
-      <div class="row mb-3">
-        <div class="col">
-          <label class="col-sm-4 col-form-label offset-4">{{ field.label }}</label>
-          <div class="col-sm-4 offset-4 w-25">
+      <div class="w-full mb-3">
+        <div class="">
+          <label class="mx-5 mb-2">{{ field.label }}:</label>
+          <div class="mx-5">
             {{ field }}
             {% if field.errors %}
             {% for error in field.errors %}
@@ -32,11 +29,11 @@
         </div>
       </div>
       {% endfor %}
-      <div class="row mb-3 offset-sm-5">
-        <div class="col">
-          <button type="submit" class="btn btn-success">Принять</button>
-        </div>
+      <div class="text-center my-3">
+        <button type="submit" class="py-2 fw-bolder  w-50 btn btn-success">Принять</button>
       </div>
     </form>
+    </div>
   </div>
+</div>
 {% endblock %}
