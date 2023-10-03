@@ -48,10 +48,10 @@ def login_view(request):
 
 @login_required(login_url=reverse_lazy('login'))
 def profile_view(request):
-    user = request.user
-    resumes = Resume.objects.all()
-    context = {'resumes': resumes}
-    return render(request, 'app_auth/profile.html', context)
+    # user = request.user
+    # resumes = Resume.objects.all(filter=user)
+    # context = {'resumes': resumes}
+    return render(request, 'app_auth/profile.html')
 
 
 def logout_view(request):
@@ -63,9 +63,10 @@ def logout_view(request):
 def add_vacation(request):
     if request.method == 'POST':
         form = VacancyForm(request.POST)
-        form.save()
         if form.is_valid():
-            form.save()
+            vacation = form.save(commit=False)
+            vacation.user = request.user
+            vacation.save()
             return redirect(reverse('index-page'))
         return render(request, 'app_auth/add_vacation.html', {'form': form})
     form = VacancyForm()
