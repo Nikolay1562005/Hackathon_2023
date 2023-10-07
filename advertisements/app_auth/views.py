@@ -52,7 +52,7 @@ def profile_view(request):
     if user:
         resumes = Resume.objects.filter(user=user)
         return render(request, 'app_auth/profile.html', {'resumes': resumes})
-    
+    return render(request, 'app_auth/profile.html', {'resumes': None})
 
 
 
