@@ -48,10 +48,10 @@ def login_view(request):
 
 @login_required(login_url=reverse_lazy('login'))
 def profile_view(request):
-    # user = request.user
-    # resumes = Resume.objects.all(filter=user)
-    # context = {'resumes': resumes}
-    return render(request, 'app_auth/profile.html')
+    user = request.user
+    resumes = Resume.objects.filter(user=user)
+    return render(request, 'app_auth/profile.html', {'resumes': resumes})
+
 
 
 def logout_view(request):
