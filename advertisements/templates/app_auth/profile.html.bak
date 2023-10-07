@@ -18,11 +18,9 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-			{% if resume.is_answered %}
-				<h5 class="card-title">
-				Вами заинтересовались
-				</h5>
-			{% endif %}
+            <h5 class="card-title">
+              {{ resume.is_answered }}
+            </h5>
               <p class="card-text">
                 {{ resume.commentary }}
               </p>
